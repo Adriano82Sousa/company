@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Company</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsable">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Company</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapsable">
+      <ul class="nav navbar-nav foo" id="menu">
+        <p class="navbar-text">Opções:</p>
+        <li class="<%= 'active' if current_page?(root_path) %>"><a href="/">Home</a></li>
+        <li class="<%= 'active' if current_page?(empresas_path) %>"><a href="/empresas">Empresas</a></li>
+        <li class="<%= 'active' if current_page?(transacaos_path) %>"><a href="/transacaos">Transações</a></li>
+        <!-- <li class="<%= 'active' if current_page?(transacaos_path) %>"><a href="/Relatorios">Relatorios</a></li> -->
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+  <hr/>
+  
+    <%= yield %>
+  </body>
+</html>

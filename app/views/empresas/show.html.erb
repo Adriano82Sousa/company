@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<h1>Empresas</h1>
+
+<div class="form-group col-md-5">
+    <strong class="control-label">Nome:</strong>
+  <%= @empresa.nome %>
+</div>
+
+<div class="form-group col-md-4">
+    <strong class="control-label">CNPJ:</strong>
+  <%= @empresa.cnpj %>
+</div>
+
+<div class="form-group col-md-4">
+    <strong class="control-label">Certame:</strong>
+  <%= @empresa.certame %>
+</div>
+<div class="form-group col-md-4">
+    <strong class="control-label">Objeto:</strong>
+  <%= @empresa.objeto %>
+</div>
+<div class="form-group col-md-4">
+    <strong class="control-label">Participante:</strong>
+  <%= @empresa.participante %>
+</div>
+<div id="actions" class="row">
+  <div class="col-md-12">
+    <div class="actions">
+      <%= link_to 'Ediar', edit_empresa_path(@empresa), :class =>"btn btn-default" %> |
+      <%= link_to 'voltar', empresas_path, :class =>"btn btn-default" %>
+    </div>
+  </div>
+  </div>
+

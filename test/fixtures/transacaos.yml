@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  empresa: one
+  relacaoNegocio: MyString
+  formaPagameto: MyString
+  dataPagamento: 2016-10-11 08:18:06
+  documento: MyString
+  valor: 9.99
+  dataEmissao: 2016-10-11 08:18:06
+  justificativa: MyString
+
+two:
+  empresa: two
+  relacaoNegocio: MyString
+  formaPagameto: MyString
+  dataPagamento: 2016-10-11 08:18:06
+  documento: MyString
+  valor: 9.99
+  dataEmissao: 2016-10-11 08:18:06
+  justificativa: MyString

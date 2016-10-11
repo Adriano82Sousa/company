@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Transações</h1>
+<style>
+  .table {
+      border: 1px solid #dddddd;
+      border-collapse: separate; 
+      border-left: 0; -webkit-border-radius: 4px;  
+      -moz-border-radius: 4px;  
+      border-radius: 4px;
+  }
+
+  .tableTR{
+    background-image: linear-gradient(to bottom, #2b4e72, #1d354d);    
+    background: -webkit-linear-gradient(top, #eee 0, #dadada 100%);
+  }
+
+  .tableTD{
+    border: 1px solid #dddddd; 
+    border-collapse: separate;
+    border-left: 0;
+    border-radius: 4px;  
+    border-radius: 4px;
+    text-align: center;
+  }
+
+</style>
+<table class="table">
+  <thead>
+    <tr class="tableTR">
+      <th>Empresa de Origem</th>
+      <th>Empresa de Destino</th>
+      <th>Relação de Negocio</th>
+      <th>Formapagameto</th>
+      <th>Datapagamento</th>
+      <th>Documento</th>
+      <th>Valor</th>
+      <th>Dataemissao</th>
+      <th>Justificativa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transacaos.each do |transacao| %>
+      <tr>
+        <td class="tableTD"><%= transacao.empresa_origem.nome %></td>
+        <td class="tableTD"><%= transacao.empresa_destino.nome %></td>
+        <td class="tableTD"><%= transacao.relacaoNegocio %></td>
+        <td class="tableTD"><%= transacao.formaPagameto %></td>
+        <td class="tableTD"><%= transacao.dataPagamento %></td>
+        <td class="tableTD"><%= transacao.documento %></td>
+        <td class="tableTD"><%= transacao.valor %></td>
+        <td class="tableTD"><%= transacao.dataEmissao %></td>
+        <td class="tableTD"><%= transacao.justificativa %></td>
+        <td class="tableTD"><%= link_to 'Show', transacao %></td>
+        <td class="tableTD"><%= link_to 'Edit', edit_transacao_path(transacao) %></td>
+        <td class="tableTD"><%= link_to 'Destroy', transacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Transação', new_transacao_path, :class =>"btn btn-default" %>

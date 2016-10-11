@@ -1,0 +1,69 @@
+<%= form_for(transacao) do |f| %>
+  <% if transacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transacao.errors.count, "error") %> prohibited this transacao from being saved:</h2>
+
+      <ul>
+      <% transacao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  
+  <div class="form-group col-md-5">
+   <%= f.label 'Empresa de Origem' , :class=>"control-label"%>
+    <%= f.select :empresa_origem_id, Empresa.all.map {|e| [e.nome, e.id]}, :class=>"form-control" %>
+  </div>
+   <div class="form-group col-md-5">
+   <%= f.label 'Empresa de Destino' , :class=>"control-label"%>
+    <%= f.select :empresa_destino_id, Empresa.all.map {|e| [e.nome, e.id]}, :class=>"form-control" %>
+  </div>
+
+  <div class="form-group col-md-6">
+     <%= f.label 'Relação de Negócio', :class=>"control-label" %>
+    <%= f.text_field :relacaoNegocio, :class=>"form-control col-md-4" %>
+   </div>
+
+  <div class="form-group col-md-6">
+    <%= f.label 'Forma de Pagamento', :class=>"control-label" %>
+    <%= f.text_field :formaPagameto, :class=>"form-control" %>
+  </div>
+
+  <div class="form-group col-md-3">
+    <%= f.label 'Data Pagamento', :class=>"control-label" %>
+    <%= f.date_select :dataPagamento, :class=>"form-control" %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :justificativa, :class=>"control-label" %>
+    <%= f.text_field :justificativa, :class=>"form-control" %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :valor, :class=>"control-label" %>
+    <%= f.text_field :valor, :class=>"form-control" %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :documento, :class=>"control-label" %>
+    <%= f.text_field :documento, :class=>"form-control" %>
+  </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label 'Data Emissão', :class=>"control-label" %>
+    <%= f.date_select :dataEmissao, :class=>"form-control" %>
+  </div>
+
+  
+
+  <div id="actions" class="row">
+  <div class="col-md-12">
+    <div class="actions">
+      <%= f.submit 'Salvar', :class =>"btn btn-default" %>
+      <%= link_to 'Voltar', transacaos_path, :class =>"btn btn-default" %>
+    </div>
+  </div>
+  
+<% end %>

@@ -1,0 +1,2 @@
+json.extract! transacao, :id, :empresa_id, :relacaoNegocio, :formaPagameto, :dataPagamento, :documento, :valor, :dataEmissao, :justificativa, :created_at, :updated_at
+json.url transacao_url(transacao, format: :json)

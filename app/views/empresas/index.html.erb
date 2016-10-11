@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Empresas</h1>
+
+<style>
+  .table {
+      border: 1px solid #dddddd;
+      border-collapse: separate; 
+      border-left: 0; -webkit-border-radius: 4px;  
+      -moz-border-radius: 4px;  
+      border-radius: 4px;
+  }
+
+  .tableTR{
+    background-image: linear-gradient(to bottom, #2b4e72, #1d354d);    
+    background: -webkit-linear-gradient(top, #eee 0, #dadada 100%);
+  }
+
+  .tableTD{
+    border: 1px solid #dddddd; 
+    border-collapse: separate;
+    border-left: 0;
+    border-radius: 4px;  
+    border-radius: 4px;
+    text-align: center;
+  }
+
+</style>
+<table class="table">
+  <thead>
+    <tr class="tableTR">
+      <th>Nome</th>
+      <th>Cnpj</th>
+      <th>Certame</th>
+      <th>Objeto</th>
+      <th>Participante</th>
+      <th >Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empresas.each do |empresa| %>
+      <tr>
+        <td class="tableTD"><%= empresa.nome %></td>
+        <td class="tableTD"><%= empresa.cnpj %></td>
+        <td class="tableTD"><%= empresa.certame %></td>
+        <td class="tableTD"><%= empresa.objeto %></td>
+        <td class="tableTD"><%= empresa.participante %></td>
+        <td class="tableTD">
+          <%= link_to 'Mostrar', empresa %> |
+          <%= link_to 'Editar', edit_empresa_path(empresa) %> |
+          <%= link_to 'apagar', empresa, method: :delete, data: { confirm: 'Deseja mesmo apagar?' } %>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Empresa', new_empresa_path, :class =>"btn btn-default" %>
