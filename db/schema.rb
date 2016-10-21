@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 20161011111806) do
     t.string   "formaPagameto"
     t.datetime "dataPagamento"
     t.string   "documento"
-    t.decimal  "valor",              precision: 10
+    t.decimal  "valor",              precision: 10, scale: 2
     t.datetime "dataEmissao"
     t.string   "justificativa"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
 end

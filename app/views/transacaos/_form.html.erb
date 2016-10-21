@@ -14,7 +14,7 @@
   
   <div class="form-group col-md-5">
    <%= f.label 'Sacado' , :class=>"control-label"%>
-   <%= f.select(:empresa_origem_id, Empresa.all.collect {|e| [e.nome+' '+ e.conta, e.id]}, {:include_blank => "Selecione o Beneficiado"}, {:class => "form-control"} )%>
+   <%= f.select(:empresa_origem_id, Empresa.all.collect {|e| [e.nome+' '+ e.conta, e.id]}, {:include_blank => "Selecione o Sacado"}, {:class => "form-control"} )%>
   </div>
   <div class="form-group col-md-5">
    <%= f.label 'Beneficiado' , :class=>"control-label"%>
@@ -31,13 +31,17 @@
     <%= f.text_field :formaPagameto, :class=>"form-control", :required => true %>
   </div>
 
+
+
 <script>
       $(document).ready(function () {
-        $('.datepicker').datepicker({
-            format: "dd/mm/yyyy",
-            language: "pt-BR"
-        });
+        $('.datepicker').datepicker({format: "dd/mm/yyyy", language: "pt-BR" });
+        $('.money').mask('000.000.000.000.000,00');
+        $(".txtCnpj").mask("99.999.999/9999-99");
       });
+
+      
+      
 </script>
 
 
@@ -53,7 +57,7 @@
 
   <div class="form-group col-md-4">
     <%= f.label :valor, :class=>"control-label" %>
-    <%= f.text_field :valor, :class=>"form-control" , :required => true%>
+    <%= f.text_field :valor, :class=>"form-control money" , :required => true%>
   </div>
 
   <div class="form-group col-md-4">

@@ -52,7 +52,7 @@
         <td class="tableTD"><%= transacao.formaPagameto %></td>
         <td class="tableTD"><%= transacao.dataPagamento.strftime("%d/%m/%Y") %></td>
         <td class="tableTD"><%= transacao.documento %></td>
-        <td class="tableTD"><%= transacao.valor %></td>
+        <td class="tableTD"><%= number_to_currency(transacao.valor, unit: "R$ ", separator: ",", precision: 2) %></td>
         <td class="tableTD"><%= transacao.dataEmissao.strftime("%d/%m/%Y") %></td>
         <td class="tableTD"><%= transacao.justificativa %></td>
         <td class="tableTD"><%= link_to 'Mostrar', transacao %></td>
