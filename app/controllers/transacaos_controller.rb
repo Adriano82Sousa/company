@@ -16,8 +16,7 @@ class TransacaosController < ApplicationController
   def new
     t = Transacao.last
 	transacao = Transacao.new
-	transacao.dataPagamento =  t.dataPagamento.strftime("%d/%m/%Y")
-	
+	transacao.dataPagamento =  (t!= nil ? t.dataPagamento.strftime("%d/%m/%Y") : "")	
 	
 	@transacao = transacao
 	

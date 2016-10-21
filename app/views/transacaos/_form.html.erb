@@ -14,11 +14,11 @@
   
   <div class="form-group col-md-5">
    <%= f.label 'Sacado' , :class=>"control-label"%>
-    <%= f.select :empresa_origem_id, Empresa.all.map {|e| [e.nome+' '+ e.conta, e.id]}, prompt: "Selecione o Sacado", :class=>"form-control" %>
+   <%= f.select(:empresa_origem_id, Empresa.all.collect {|e| [e.nome+' '+ e.conta, e.id]}, {:include_blank => "Selecione o Beneficiado"}, {:class => "form-control"} )%>
   </div>
-   <div class="form-group col-md-5">
+  <div class="form-group col-md-5">
    <%= f.label 'Beneficiado' , :class=>"control-label"%>
-    <%= f.select :empresa_destino_id, Empresa.all.map {|e| [e.nome+' '+ e.conta, e.id]}, prompt: "Selecione o Beneficiado",:class=>"form-control" %>
+    <%= f.select(:empresa_destino_id, Empresa.all.collect {|e| [e.nome+' '+ e.conta, e.id]}, {:include_blank => "Selecione o Beneficiado"}, {:class => "form-control"} )%>
   </div>
 
 <!--  <div class="form-group col-md-6">
