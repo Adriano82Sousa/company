@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20161011111806) do
 
   create_table "empresas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nome"
+    t.string   "conta"
     t.string   "cnpj"
     t.string   "certame"
     t.string   "objeto"

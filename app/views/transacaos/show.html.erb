@@ -1,13 +1,19 @@
 <p id="notice"><%= notice %></p>
 <h1>Transação</h1>
 <div class="form-group col-md-5">
-    <strong class="control-label">Nome da Empresa de Origem:</strong>
-  <%= @transacao.empresa_origem.nome %>
+    <strong class="control-label">Sacado:</strong>
+  <%= if(@transacao.empresa_origem)
+		@transacao.empresa_origem.nome 
+	  end
+  %>
 </div>
 
 <div class="form-group col-md-5">
     <strong class="control-label">Nome da Empresa de Destino:</strong>
-  <%= @transacao.empresa_destino.nome %>
+  <%= if(@transacao.empresa_destino)
+		@transacao.empresa_destino.nome 
+	  end 
+   %>
 </div>
 <div class="form-group col-md-5">
   <strong class="control-label">Relação de Negócio:</strong>
@@ -43,8 +49,9 @@
 <div id="actions" class="row">
   <div class="col-md-12">
     <div class="actions">
-      <%= link_to 'Ediar', edit_transacao_path(@transacao), :class =>"btn btn-default" %> |
-      <%= link_to 'voltar', transacaos_path, :class =>"btn btn-default" %>
+      <%= link_to 'Editar', edit_transacao_path(@transacao), :class =>"btn btn-default" %> |
+      <%= link_to 'voltar', transacaos_path, :class =>"btn btn-default" %> |
+	  <%= link_to 'Nova Transação', new_transacao_path, :class =>"btn btn-default" %>
     </div>
   </div>
   </div>

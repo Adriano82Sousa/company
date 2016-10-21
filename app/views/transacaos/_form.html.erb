@@ -13,37 +13,47 @@
  
   
   <div class="form-group col-md-5">
-   <%= f.label 'Empresa de Origem' , :class=>"control-label"%>
-    <%= f.select :empresa_origem_id, Empresa.all.map {|e| [e.nome, e.id]}, :class=>"form-control" %>
+   <%= f.label 'Sacado' , :class=>"control-label"%>
+    <%= f.select :empresa_origem_id, Empresa.all.map {|e| [e.nome+' '+ e.conta, e.id]}, prompt: "Selecione o Sacado", :class=>"form-control" %>
   </div>
    <div class="form-group col-md-5">
-   <%= f.label 'Empresa de Destino' , :class=>"control-label"%>
-    <%= f.select :empresa_destino_id, Empresa.all.map {|e| [e.nome, e.id]}, :class=>"form-control" %>
+   <%= f.label 'Beneficiado' , :class=>"control-label"%>
+    <%= f.select :empresa_destino_id, Empresa.all.map {|e| [e.nome+' '+ e.conta, e.id]}, prompt: "Selecione o Beneficiado",:class=>"form-control" %>
   </div>
 
-  <div class="form-group col-md-6">
+<!--  <div class="form-group col-md-6">
      <%= f.label 'Relação de Negócio', :class=>"control-label" %>
-    <%= f.text_field :relacaoNegocio, :class=>"form-control col-md-4" %>
+    <%= f.text_field :relacaoNegocio, :class=>"form-control col-md-4" , :required => true%>
    </div>
-
+-->
   <div class="form-group col-md-6">
-    <%= f.label 'Forma de Pagamento', :class=>"control-label" %>
-    <%= f.text_field :formaPagameto, :class=>"form-control" %>
+    <%= f.label 'Transação Financeira', :class=>"control-label" %>
+    <%= f.text_field :formaPagameto, :class=>"form-control", :required => true %>
   </div>
+
+<script>
+      $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR"
+        });
+      });
+</script>
+
 
   <div class="form-group col-md-3">
     <%= f.label 'Data Pagamento', :class=>"control-label" %>
-    <%= f.date_select :dataPagamento, :class=>"form-control" %>
+    <%= f.text_field :dataPagamento, :class=>"form-control datepicker" , :required => true , :value => (@transacao.dataPagamento ? @transacao.dataPagamento.strftime('%d/%m/%Y'): "" ) %> 
   </div>
 
-  <div class="form-group col-md-4">
-    <%= f.label :justificativa, :class=>"control-label" %>
+  <div class="form-group col-md-7">
+    <%= f.label 'Finalidade', :class=>"control-label" %>
     <%= f.text_field :justificativa, :class=>"form-control" %>
   </div>
 
   <div class="form-group col-md-4">
     <%= f.label :valor, :class=>"control-label" %>
-    <%= f.text_field :valor, :class=>"form-control" %>
+    <%= f.text_field :valor, :class=>"form-control" , :required => true%>
   </div>
 
   <div class="form-group col-md-4">
@@ -53,7 +63,8 @@
 
   <div class="form-group col-md-4">
     <%= f.label 'Data Emissão', :class=>"control-label" %>
-    <%= f.date_select :dataEmissao, :class=>"form-control" %>
+	<%= f.text_field :dataEmissao, :class=>"form-control datepicker", :value => (@transacao.dataEmissao ? @transacao.dataEmissao.strftime('%d/%m/%Y'): "" )  %> 
+   
   </div>
 
   

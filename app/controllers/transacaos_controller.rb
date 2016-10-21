@@ -14,11 +14,18 @@ class TransacaosController < ApplicationController
 
   # GET /transacaos/new
   def new
-    @transacao = Transacao.new
+    t = Transacao.last
+	transacao = Transacao.new
+	transacao.dataPagamento =  t.dataPagamento.strftime("%d/%m/%Y")
+	
+	
+	@transacao = transacao
+	
   end
 
   # GET /transacaos/1/edit
   def edit
+	
   end
 
   # POST /transacaos

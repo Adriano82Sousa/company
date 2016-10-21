@@ -30,6 +30,7 @@
   <thead>
     <tr class="tableTR">
       <th>Nome</th>
+	  <th>Conta</th>
       <th>Cnpj</th>
       <th>Certame</th>
       <th>Objeto</th>
@@ -42,6 +43,7 @@
     <% @empresas.each do |empresa| %>
       <tr>
         <td class="tableTD"><%= empresa.nome %></td>
+		<td class="tableTD"><%= empresa.conta %></td>
         <td class="tableTD"><%= empresa.cnpj %></td>
         <td class="tableTD"><%= empresa.certame %></td>
         <td class="tableTD"><%= empresa.objeto %></td>

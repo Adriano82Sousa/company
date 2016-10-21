@@ -5,7 +5,10 @@
     <strong class="control-label">Nome:</strong>
   <%= @empresa.nome %>
 </div>
-
+<div class="form-group col-md-5">
+    <strong class="control-label">Conta:</strong>
+  <%= @empresa.conta %>
+</div>
 <div class="form-group col-md-4">
     <strong class="control-label">CNPJ:</strong>
   <%= @empresa.cnpj %>
@@ -27,7 +30,8 @@
   <div class="col-md-12">
     <div class="actions">
       <%= link_to 'Ediar', edit_empresa_path(@empresa), :class =>"btn btn-default" %> |
-      <%= link_to 'voltar', empresas_path, :class =>"btn btn-default" %>
+      <%= link_to 'voltar', empresas_path, :class =>"btn btn-default" %> |
+	  <%= link_to 'Nova Empresa', new_empresa_path, :class =>"btn btn-default" %>
     </div>
   </div>
   </div>

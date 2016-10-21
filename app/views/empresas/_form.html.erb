@@ -15,12 +15,15 @@
 </style>
   <div class="form-group col-md-8">
     <%= f.label :nome, :class=>"control-label" %>
-    <%= f.text_field :nome , :class=>"form-control"%>
+    <%= f.text_field :nome , :class=>"form-control", :required => true%>
   </div>
-
+	<div class="form-group col-md-4">
+    <%= f.label :conta, :class=>"control-label" %>
+    <%= f.text_field :conta , :class=>"form-control", :required => true%>
+  </div>
   <div class="form-group col-md-4">
     <%= f.label :cnpj,:class=>"control-label" %>
-    <%= f.text_field :cnpj, :class=>"form-control" %>
+    <%= f.text_field :cnpj, :class=>"form-control" , :required => true%>
   </div>
   
   <div class="form-group col-md-5">
